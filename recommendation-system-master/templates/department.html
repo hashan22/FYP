@@ -1,0 +1,162 @@
+{% load static %}
+
+{% include 'inc/head.inc.html' %}
+{% include 'inc/navbar.inc.html' %}
+
+<body>
+    <br>
+    <div class="container">
+        <div class="mb-3">
+            <div class="p-3 mx-2" style="border-radius: 15px 15px 0px 0px; border: solid 1px #eeeeee;">
+                <h4 class="mb-0">Department Recommendation Questionnaire</h4>
+            </div>
+            <div class="row mx-2 py-0 row-container" style="border-radius: 0px 0px 15px 15px; border: solid 1px #eeeeee;">
+                <div class="col-sm-6 d-flex align-items-center" style="border-radius: 15px 0px 0px 15px;">
+                    <div>
+                        <img src="{% static 'img/survey.jpg' %}" style="width: 100%;" alt="">
+                    </div>
+    
+                </div>
+    
+                <div class="col-sm-6 row-container" style="overflow-y: auto;">
+                    <div class="py-3">
+                        {% for question in all_questions %}
+                            <div class="border radius-15 p-3 mb-3" style="box-shadow: 3px 3px 3px #cccccc;">
+                                
+                                <h6>{{ question.text }}</h6>
+                                {% for answer in question.answers.all %}
+                                    <div class="border radius-15 p-2 mt-3 answer answer-{{ question.id }}"
+                                        onclick="select_answer(this, 'answer-{{ question.id }}')"
+                                        data-answer-id="{{ answer.id }}" 
+                                        data-question-id="{{ question.id }}">
+                                        {{ answer.text }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                           
+                        {% endfor %}
+
+                        <div class="alert alert-danger radius-15 text-center" style="display: none;" id="error" role="alert">
+                            Kindly select answers of all questions!
+                        </div>
+
+                        <div class="alert alert-success radius-15 text-center" style="display: none;" id="success" role="alert">
+                            Your response has been recorded successfully!
+                        </div>
+
+                        <button type="button" onclick="submit_answers()" class="btn btn-primary px-3 btn-block radius-15">Submit Answers</button>
+                    </div>
+                  
+                </div>
+    
+            </div>
+
+        </div>
+       
+    </div>
+
+
+    
+    <!-- Modal -->
+    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Recommended Department</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    
+                    <div class="row" id="suggestion-container">
+                        
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-primary">Save</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</body>
+
+
+<script>
+    var total_answers = parseInt("{{ total_questions }}");
+
+    function hide() {
+        setTimeout(() => {
+            $("#success, #error").hide();
+        }, 5000);
+    }
+
+    function select_answer(element, answer_id) {
+        $(`.${answer_id}`).removeClass("selected-answer");
+        $(element).addClass("selected-answer");
+    }
+
+    function submit_answers() {
+        let counter = 0;
+        let answers = [];
+        $(".selected-answer").each(function () {
+            counter += 1;
+            let single_question = $(this).attr("data-question-id");
+            let single_answer = $(this).attr("data-answer-id");
+            answers.push(
+                {
+                    question: single_question,
+                    answer: single_answer
+                }
+            );
+        });
+
+        if (counter == total_answers) {
+
+            $.ajax({
+                url: "{% url 'dept-submit-response' %}",
+                type: "GET",
+                data: {response: JSON.stringify(answers)},
+                success: (response)=>{
+                    console.log(response);
+                    if (response.status) {
+                        $(".answer").removeClass("selected-answer");
+                        let departments = response.response;
+                        $("#suggestion-container").children().remove();
+                        for (let i = 0; i < departments.length; i++) {
+                            const department = departments[i];
+                            $("#suggestion-container").append(
+                                `
+                                <div class="col-sm-12 mb-3">
+                                    <div class="card text-center" style="border-radius:15px; background-color: #f9f9f9;">
+                                    <div class="card-body">
+                                        <p class="card-text">${department}</p>
+                                    </div>
+                                    </div>
+                                </div>
+                                `
+                            );
+                        }
+
+                        $("#modelId").modal("show");
+                        $("#success").show();  
+                        
+                    }else{
+                        console.log("abc");
+                    }
+                }
+            });  
+
+
+        }else{
+            $("#error").show();
+        }
+
+        hide();
+    }
+</script>
+
+
+</html>

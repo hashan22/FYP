@@ -1,0 +1,89 @@
+{% load static %}
+{% include 'inc/head.inc.html' %}
+
+{% include 'inc/navbar.inc.html' %}
+
+
+<div class="container">
+
+    <div class="mt-4">
+        <h1 class="display-4" style="font-size: 20px;"></h6>
+        <h1 class="display-4">Register now</h1>
+        <h1 class="display-4" style="font-size: 30px;">To get the best recommendation of your career</h1>
+    </div> 
+
+    <div class="row py-4">
+        <div class="col-sm-7">
+            <img src="{% static 'img/signup-side.jpg' %}" style="height:450px;" class="left-img" alt="">
+            <div class="row mt-3 px-2">
+                <div class="col-sm-5 px-2">
+                    <div style="border-radius: 100px; padding: 5px; text-align: center;" class="bg-success text-white">
+                        Recommendations for Societies 
+                    </div>
+                </div>
+                <div class="col-sm-4 px-2">
+                    <div style="border-radius: 100px; padding: 5px; text-align: center;" class="bg-success text-white">
+                        Search top programs
+                    </div>
+                </div>
+                <div class="col-sm-3 px-2">
+                    <div style="border-radius: 100px; padding: 5px; text-align: center;" class="bg-success text-white">
+                        Write your reviews
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-5 d-flex justify-content-center align-items-center">
+            <div class="my-form" style="padding: 20px 50px;" id="mainDiv">
+                <h3 class="text-primary">Registration</h3>
+                <form autocomplete="off" style="text-align:center; margin-top: 30px;" action="{% url 'signup' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+  
+                    <input class="field form-control" id="name" name="name" type="text" value="{{name}}" placeholder="First name" required>
+                    <input class="field form-control" id="l_name" name="l_name" type="text" value="{{l_name}}" placeholder="Last name" required>
+                    <input class="field form-control" id="email" name="email" type="email" value="{{email}}" placeholder="Email" required>
+                    <input class="field form-control" id="pass1" name="pass1" type="password" value="{{pass1}}" placeholder="Password" required>
+                    <input class="field form-control" id="pass2" name="pass2" type="password" value="{{pass2}}" placeholder="Confirm Password" required>
+                    <p id="error" 
+                        style="
+                            text-align: left; 
+                            transition-duration:0.25s;
+                            color:#ed4337;"
+                        >
+                        {% for message in messages %}
+                            {{message}}
+                        {% endfor %}
+                    </p>
+                    <button class="btn btn-block btn-primary" type="submit">SIGNUP</button>        
+                    <p class="my-4">Already registered?</p>
+                    <a href="{% url 'login' %}"><button class="btn btn-block btn-secondary" type="button">LOGIN</button></a>
+                    <br>        
+                </form>
+            </div>
+        </div>
+    </div>   
+    <br> 
+</div>
+
+
+
+<script>
+    var x = "{{border}}";
+    if(x=="email"){
+        $("#email").css(
+            'border-color', '#ed4337'
+        );
+    }else if(x=="password"){
+        $("#pass1, #pass2").css(
+            'border-color', '#ed4337'
+        );
+    }else if(x=="phone"){
+        $("#username").css(
+            'border-color', '#ed4337'
+        );
+    };
+
+</script>
+
+</html>

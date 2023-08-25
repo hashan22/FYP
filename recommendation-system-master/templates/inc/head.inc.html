@@ -1,0 +1,148 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Application</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  
+    <!-- icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.bundle.js"></script>
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.js'></script>
+
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css' rel='stylesheet' />
+
+    <!-- <script src="{% static 'matrix/test/utils.js' %}"></script> -->
+
+    <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
+
+    <base href="http://127.0.0.1:8000/">
+
+    <style>
+        .my-form {
+            width: 100%;
+            text-align: center;
+            border: solid 1px #cccccc;
+            border-radius: 20px;
+            padding: 50px;
+        }
+
+        .bg-success{
+            background-color: #006631;
+        }
+
+        .left-img{
+            width: 100%; 
+            border-radius: 20px;
+        }
+
+        select { 
+            padding:10px;
+            width: 10em 
+        }
+
+        .field {
+        
+            height: 50px;
+            width: 100%;
+            margin: 20px 0px;
+            font-size: 11pt;
+            padding: 8px 15px;
+            border: 1px solid #cccccc;
+            border-radius: 15px;
+        }
+
+        .profile {
+            background-color: #ffffff;
+            border-radius: 5px;
+            text-align: center;
+            border: solid 1px #cccccc;
+        }
+
+        .row-container{
+            height: 70vh;
+        }
+
+        .radius-15{
+            border-radius: 15px;
+        }
+
+
+        @media only screen and (max-width: 500px) {
+            .left-img{
+                display: none;
+            }
+
+            .abc{
+            padding-right: 40px;
+            }
+
+            .my-form {
+                padding: 0px;
+                width: 100%;
+                border: none;
+                margin-left: 20px;
+            }
+            
+            .field {
+                width: 100%;
+            }
+
+            .row-container{
+                height: 100%;
+            }
+
+        }
+
+        /* width */
+        ::-webkit-scrollbar {
+            width: 15px;
+        }
+        
+        /* Track */
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px cccccc; 
+            border-radius: 10px;
+        }
+        
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #eeeeee; 
+            border-radius: 10px;
+        }
+        
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #cccccc; 
+        }
+
+        button.btn{
+            border-radius: 15px;
+        }
+
+    </style>
+
+</head>
+

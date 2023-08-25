@@ -1,0 +1,29 @@
+.icon-add{
+    background-color: green;
+    color: white;
+    border-radius: 100%;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.icon-cancel{
+    background-color: red;
+    color: white;
+    border-radius: 100%;
+    padding: 3px;
+    cursor: pointer;
+}
+
+.answer{
+    cursor: pointer;
+    transition-duration: 0.25s;
+}
+
+.answer:hover{
+    transition-duration: 0.25s;
+    background-color: #e6fcff;   
+}
+
+.selected-answer{
+    background-color: #e6fcff;
+}

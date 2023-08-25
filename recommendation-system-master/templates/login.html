@@ -1,0 +1,59 @@
+{% load static %}
+{% include 'inc/head.inc.html' %}
+{% include 'inc/navbar.inc.html' %}
+
+<body>
+    <div class="container">
+
+        <div class="mt-4">
+            <h1 class="display-4" style="font-size: 20px;">Welcome to IQRA</h6>
+            <h1 class="display-4">Recommendation</h1>
+            <h1 class="display-4" style="font-size: 30px;">We are what we consistently do; excellence, therefore <br> is not an act but a habit</h1>
+        </div> 
+
+        <div class="row py-2">
+            <div class="col-sm-7 d-flex align-items-center justify-content-center">
+                <img src="{% static 'img/side.jpg' %}" class="left-img" alt="">
+            </div>
+            <div class="col-sm-5 d-flex justify-content-center align-items-center">
+                <div class="my-form">
+                    <h3 class="text-primary">Login here!</h3>
+                    {% for message in messages %}
+                        {% if message.level == 25 %}
+                            <div class="alert alert-success mt-3 border-success" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                    <form autocomplete="off" style="text-align:center; margin-top: 20px;" action="{% url 'login' %}" method="POST">
+                        {% csrf_token %}
+                        <!-- <i class="material-icons pro">account_circle</i> -->
+                        <input class="field form-control" id="email" value="{{email}}" name="email" type="email" placeholder="Email" required>
+                        <input class="field form-control" id="passowrd" value="{{password}}" name="password" type="password" placeholder="Password" required>
+                        <input class="field form-control" id="passowrd" value="{{request.GET.next}}" name="next" type="hidden">
+                        
+                        <p id="error" 
+                            style="
+                                text-align: left; 
+                                transition-duration:0.25s;
+                                color:#ed4337;"
+                            >
+                            {% for message in messages %}
+                                {% if message.level == 40 %}
+                                    {{ message }}
+                                {% endif %}
+                            {% endfor %}
+                        </p>
+                        <button class="btn btn-block btn-primary" type="submit">NEXT</button>        
+                        <p class="my-4">Never registered before?</p>
+                        <a href="{% url 'signup' %}"><button class="btn btn-block btn-secondary" type="button">SIGNUP</button></a>
+                    </form>
+
+                </div>
+            </div>
+        </div>    
+    </div>
+
+</body>
+
+</html>

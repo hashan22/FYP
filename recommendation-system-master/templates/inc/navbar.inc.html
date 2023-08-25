@@ -1,0 +1,58 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-md bg-white navbar-dark" style="box-shadow: 3px 3px 3px #cccccc; height: 70px; border-radius: 0px 0px 20px 20px;">
+    <div class="container">
+
+        <a href="{% url 'index' %}">
+            <img src="{% static 'img/logo.png' %}" style="height: 100%; width: 150px;" alt="">
+        </a>
+
+        <button class="navbar-toggler text-primary bg-primary" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon text-primary"></span>
+        </button>
+        <div class="collapse navbar-collapse text-right" id="collapsibleNavbar">
+            <div style="width: 100%">
+                
+                <ul class="navbar-nav d-flex justify-content-end">
+                    <div class="btn-group" role="group" aria-label="" style="padding-right: 10px;">
+                        <div class="btn-group" role="group">
+                            <button id="dropdownId" type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Recommendations
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownId">
+                                <a class="dropdown-item" href="{% url 'department' %}">Department</a>
+                                <a class="dropdown-item" href="{% url 'society' %}">Society</a>
+                            </div>
+                        </div>
+                    </div> 
+                    
+                    {% if user.is_authenticated %}
+
+                        <li class="nav-item">
+                            <a href="{% url 'logout' %}" class="m-0 p-0">
+                                <button type="button" style="border: solid 1px white; width: 100px;" class="mx-2 btn btn-primary">Logout</button>
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a href="{% url 'login' %}" class="m-0 p-0">
+                                <button type="button" style="border: solid 1px white; width: 100px;" class="mx-2 btn btn-primary">Login</button>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'signup' %}" class="m-0 p-0">
+                                <button type="button" style="border: solid 1px white; width: 100px;" class="mx-2 btn btn-primary">Sign Up</button>
+                            </a>
+                        </li>  
+
+                    {% endif %}
+                </ul>
+            </div>
+        </div>  
+    </div>
+ 
+  </nav>
+
+
+

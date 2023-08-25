@@ -1,0 +1,542 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>IU Recommendation System</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <!-- <link href="{% static 'template/assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'template/assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+ -->
+  <!-- Google Fonts -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Dosis:300,400,500,,600,700,700i|Lato:300,300i,400,400i,700,700i" rel="stylesheet"> -->
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'template/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'template/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'template/assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'template/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'template/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+  <!-- icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'template/assets/css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Butterfly - v4.7.0
+  * Template URL: https://bootstrapmade.com/butterfly-free-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+  <style>
+    a.btn-get-started, button.btn{
+            border-radius: 15px;
+        }
+  </style>
+</head>
+
+<body>
+
+
+  {% include 'inc/navbar.inc.html' %}
+
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <!-- <h1>Creating websites that make you stop & stare</h1> -->
+          <h2 style="font-size: 30px;" class="display-4">IQRA University</h2>
+          <h3 class="display-4">Recommendation System</h3>
+          <h2>
+            Find out which department is best for your career & which society would be the best for you.
+            Answer some basic questions and get recommended department & societies.
+          <div><a href="{% url 'society' %}" class="btn-get-started bg-primary" style="border-radius: 15px;">Get Society Recommendation</a></div>
+          <div><a href="{% url 'department' %}" class="btn-get-started bg-primary" style="border-radius: 15px;">Get Department Recommendation</a></div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img">
+          <img src="{% static 'template/assets/img/index.png' %}" class="img-fluid" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+
+
+    <section id="departments" class="services section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Departments</h2>
+          <p>All departments and career domains provided within the university are given below</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-laptop" style="color: #ff689b;"></i></div>
+              <h4 class="title"><a href="https://iqra.edu.pk/academics/computer-sciences/" target="_blank">Computer Sciences</a></h4>
+              <p class="description">The Department prepares tech-savvy graduates taking a scientific and practical approach to computation and its applications.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-briefcase" style="color: #e9bf06;"></i></div>
+              <h4 class="title"><a href="https://iqra.edu.pk/academics/business-administration/" target="_blank">Business Studies</a></h4>
+              <p class="description">Department of Business Administration programmes are designed to cater to the needs of globalized corporate environment.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-wow-delay="0.1s">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-gear" style="color: #3fcdc7;"></i></div>
+              <h4 class="title"><a href="https://iqra.edu.pk/academics/engineering/" target="_blank">Engineering Studies</a></h4>
+              <p class="description">This program, rich in engineering science, prepares students for employment as electrical or electronics engineers.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6" data-wow-delay="0.1s">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-palette" style="color:#41cf2e;"></i></div>
+              <h4 class="title"><a href="https://iqra.edu.pk/programmes/fashion-textile/" target="_blank">Fashion Design</a></h4>
+              <p class="description">Fashion and Design aims to provide knowledge through an intensive curriculum to encompass the latest developments in the industry.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-wow-delay="0.2s">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-film" style="color: #d6ff22;"></i></div>
+              <h4 class="title"><a href="https://iqra.edu.pk/academics/media-studies/" target="_blank">Media Studies</a></h4>
+              <p class="description">Media Studies aim to prepare students to critically analyze the ways in which the media reflects, represents and influences the world.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6" data-wow-delay="0.2s">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-activity" style="color: #4680ff;"></i></div>
+              <h4 class="title"><a href="https://iqra.edu.pk/academics/health-sciences/" target="_blank">Health Sciences</a></h4>
+              <p class="description">The faculty of Health Sciences offers up-to-par undergraduate education in public health and clinical experiences.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Societies</h2>
+          <p>All societies available within the university to provide different type of opportunities to the students.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-cloud" style="color: #ff689b;"></i></div>
+              <h4 class="title"><a href="https://www.facebook.com/IUCCS.khi" target="_blank">Iqra University Climate Change Society</a></h4>
+              <p class="description">Our aim is to bring justice to our environment and work for the betterment.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-newspaper" style="color: #e9bf06;"></i></div>
+              <h4 class="title"><a href="https://www.facebook.com/IUDLS" target="_blank">Iqra University Debates and Literary Society</a></h4>
+              <p class="description">Iqra University brings its very own DLS for students to engage in extracurricular activities.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-wow-delay="0.1s">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-camera-video" style="color: #3fcdc7;"></i></div>
+              <h4 class="title"><a href="https://www.facebook.com/IUDSociety" target="_blank">IU Dramatics Society</a></h4>
+              <p class="description">We hope to promote art and culture through theatre and the performing arts. Our goal is to foster a passion for theatre in our community.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6" data-wow-delay="0.1s">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-credit-card-2-front" style="color:#41cf2e;"></i></div>
+              <h4 class="title"><a href="https://www.facebook.com/IUESOFFICIAL" target="_blank">IU Entrepreneurship Society</a></h4>
+              <p class="description">The IU Entrepreneurship Society will help its students develop ideas and turn them into reality.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-wow-delay="0.2s">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-calendar" style="color: #d6ff22;"></i></div>
+              <h4 class="title"><a href="https://www.facebook.com/IUEventSociety" target="_blank">Iqra University Events Society</a></h4>
+              <p class="description">We want you to learn and engage, gain valuable knowledge and explore your opportunities.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6" data-wow-delay="0.2s">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-controller" style="color: #4680ff;"></i></div>
+              <h4 class="title"><a href="https://www.facebook.com/IUGamingAndRoboticsSociety" target="_blank">Iqra University Gaming & Robotics Society</a></h4>
+              <p class="description">This society is focused on gaming and robotics-related events with the ultimate goal of student upbringing.</p>
+            </div>   
+          </div>
+          <div class="col-lg-4 col-md-6" data-wow-delay="0.2s">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-people" style="color: #4680ff;"></i></div>
+              <h4 class="title"><a href="https://www.facebook.com/IUCSR.khi" target="_blank">Iqra University Corporate Social Responsibility</a></h4>
+              <p class="description">Our aim is to serve humanity and build community through IUCSR under Iqra University.</p>
+            </div>   
+          </div>
+          <div class="col-lg-4 col-md-6" data-wow-delay="0.2s">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-camera" style="color: #4680ff;"></i></div>
+              <h4 class="title"><a href="https://www.facebook.com/iuphotographysociety" target="_blank">IU Photography Society</a></h4>
+              <p class="description">IU Photography Society is a forum to promote photography, image-making and to support photographers in realizing their potential.</p>
+            </div>   
+          </div>
+          <div class="col-lg-4 col-md-6" data-wow-delay="0.2s">
+            <div class="icon-box">
+              <div class="icon"><i class="fa fa-soccer-ball-o" style="color: #4680ff;"></i></div>
+              <h4 class="title"><a href="https://www.facebook.com/IUSports" target="_blank">Iqra University Sports Society</a></h4>
+              <p class="description">Society's goal is to not only improve the skills of IU athletes but also to promote sports.</p>
+            </div>   
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+
+
+        <!-- ======= Team Section ======= -->
+        <section id="team" class="team section-bg">
+          <div class="container">
+    
+            <div class="section-title">
+              <h2>Developers Team</h2>
+            </div>
+    
+            <div class="row">
+    
+              <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                <div class="member">
+                  <div class="member-img">
+                    <img src="{% static 'template/assets/img/team/team-1.jpg' %}" class="img-fluid" alt="">
+                    <div class="social">
+                      <a href=""><i class="bi bi-twitter"></i></a>
+                      <a href=""><i class="bi bi-facebook"></i></a>
+                      <a href=""><i class="bi bi-instagram"></i></a>
+                      <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                  </div>
+                  <div class="member-info">
+                    <h4>Sarmad Kayani</h4>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                <div class="member">
+                  <div class="member-img">
+                    <img src="{% static 'template/assets/img/team/team-2.jpg' %}" class="img-fluid" alt="">
+                    <div class="social">
+                      <a href=""><i class="bi bi-twitter"></i></a>
+                      <a href=""><i class="bi bi-facebook"></i></a>
+                      <a href=""><i class="bi bi-instagram"></i></a>
+                      <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                  </div>
+                  <div class="member-info">
+                    <h4>Arslan Ahmed</h4>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                <div class="member">
+                  <div class="member-img">
+                    <img src="{% static 'template/assets/img/team/team-3.jpg' %}" class="img-fluid" alt="">
+                    <div class="social">
+                      <a href=""><i class="bi bi-twitter"></i></a>
+                      <a href=""><i class="bi bi-facebook"></i></a>
+                      <a href=""><i class="bi bi-instagram"></i></a>
+                      <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                  </div>
+                  <div class="member-info">
+                    <h4>Hassan Raza</h4>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                <div class="member">
+                  <div class="member-img">
+                    <img src="{% static 'template/assets/img/team/team-4.jpg' %}" class="img-fluid" alt="">
+                    <div class="social">
+                      <a href=""><i class="bi bi-twitter"></i></a>
+                      <a href=""><i class="bi bi-facebook"></i></a>
+                      <a href=""><i class="bi bi-instagram"></i></a>
+                      <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                  </div>
+                  <div class="member-info">
+                    <h4>Anmol Kukreja</h4>
+                  </div>
+                </div>
+              </div>
+    
+            </div>
+    
+          </div>
+        </section><!-- End Team Section -->
+    
+
+
+    <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts">
+      <div class="container">
+
+        <div class="text-center title">
+          <h3>What we have achieved so far</h3>
+          <p>We started this project and successfully extending its key feature, summary is here:</p>
+        </div>
+
+        <div class="row counters position-relative">
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-purecounter-start="0" data-purecounter-end="4" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Hard Workers</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Times served</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Daily recommendations</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Hours Of Support</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Counts Section -->
+
+
+    <!-- ======= Gallery Section ======= -->
+    <section id="gallery" class="gallery">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Gallery</h2>
+          <p>Some glimpses of IQRA university & students captured at societies events</p>
+        </div>
+
+        <div class="row no-gutters">
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="{% static 'template/assets/img/gallery/gallery-1.jpg' %}" class="galleery-lightbox" data-gallery="gallery-item">
+                <img src="{% static 'template/assets/img/gallery/gallery-1.jpg' %}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="{% static 'template/assets/img/gallery/gallery-2.jpg' %}" class="galleery-lightbox" data-gallery="gallery-item">
+                <img src="{% static 'template/assets/img/gallery/gallery-2.jpg' %}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="{% static 'template/assets/img/gallery/gallery-3.jpg' %}" class="galleery-lightbox" data-gallery="gallery-item">
+                <img src="{% static 'template/assets/img/gallery/gallery-3.jpg' %}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="{% static 'template/assets/img/gallery/gallery-4.jpg' %}" class="galleery-lightbox" data-gallery="gallery-item">
+                <img src="{% static 'template/assets/img/gallery/gallery-4.jpg' %}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="{% static 'template/assets/img/gallery/gallery-5.jpg' %}" class="galleery-lightbox" data-gallery="gallery-item">
+                <img src="{% static 'template/assets/img/gallery/gallery-5.jpg' %}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="{% static 'template/assets/img/gallery/gallery-6.jpg' %}" class="galleery-lightbox" data-gallery="gallery-item">
+                <img src="{% static 'template/assets/img/gallery/gallery-6.jpg' %}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="{% static 'template/assets/img/gallery/gallery-7.jpg' %}" class="galleery-lightbox" data-gallery="gallery-item">
+                <img src="{% static 'template/assets/img/gallery/gallery-7.jpg' %}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="{% static 'template/assets/img/gallery/gallery-8.jpg' %}" class="galleery-lightbox" data-gallery="gallery-item">
+                <img src="{% static 'template/assets/img/gallery/gallery-8.jpg' %}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Gallery Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>Feel free to send us your queries about our service</p>
+        </div>
+
+        <div>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28965.431462082404!2d67.0378447!3d24.8406512!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33c12762969fb%3A0x9cb60b7dadf1e678!2sIqra%20University!5e0!3m2!1sen!2s!4v1639074169637!5m2!1sen!2s" style="width: 100%; height: 450px;" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+        <div class="row mt-5">
+
+          <div class="col-lg-4">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>A108 ABC Road, Karachi Pakistan</p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>info@iu-recommendations.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Call:</h4>
+                <p>+923478565646</p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-8 mt-5 mt-lg-0">
+
+            <form method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+              </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button class="btn btn-primary" style="border-radius: 15px;" type="submit">Send Message</button></div>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="container py-4">
+      <div class="copyright">
+        &copy; Copyright <strong><span>IU Recommendation system</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/butterfly-free-bootstrap-theme/ -->
+        Go to <a href="https://iqra.edu.pk/" target="_blank">IQRA university</a> website 
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'template/assets/vendor/purecounter/purecounter.js' %}"></script>
+  <script src="{% static 'template/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'template/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'template/assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'template/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'template/assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'template/assets/js/main.js' %}"></script>
+
+</body>
+
+</html>
